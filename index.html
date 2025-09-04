@@ -10,12 +10,11 @@
       --bg2:#0b2a73;
       --accent:#2b6cff;
       --text:#ffffff;
-      --speed:.28s;
     }
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: "Rubik", system-ui, Arial, Helvetica, sans-serif;
+      font-family:"Rubik",Arial,Helvetica,sans-serif;
       color:var(--text);
       background:
         radial-gradient(1200px 1200px at 80% -10%, rgba(43,108,255,.25), transparent 60%),
@@ -28,11 +27,8 @@
       padding:14px 18px;
       background:linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.15));
     }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-    }
     .brand .title{ font-weight:700; font-size:1.05rem; }
-    .hamburger{ width:40px; height:40px; background:none; border:none; cursor:pointer; position:relative }
+    .hamburger{ width:40px; height:40px; background:none; border:none; cursor:pointer; }
     .hamburger span,.hamburger::before,.hamburger::after{
       content:""; display:block; width:24px; height:2px; background:#fff; margin:6px auto;
       transition:.3s;
@@ -83,8 +79,8 @@
   <!-- תוכן -->
   <main class="container">
     <section class="hero">
-      <!-- כאן התמונה שלך -->
-      <img src="logo.png" alt="הלוגו שלי" style="width:160px; margin:0 auto; display:block;" />
+      <!-- הלוגו שלך -->
+      <img src="logo.png" alt="Drix logo" style="width:200px; margin:0 auto; display:block;" />
       <h1>Drix - תיק העבודות</h1>
       <div class="subtitle">
         היי ברוך הבא לתיק העבודות שלי.<br />
