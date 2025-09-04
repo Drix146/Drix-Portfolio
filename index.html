@@ -1,194 +1,248 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Drix - Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  body {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #000000, #1a1aff);
-    color: #fff;
-  }
-
-  /* Hamburger Menu */
-  .menu-btn {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 40px;
-    height: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-    z-index: 1001;
-  }
-
-  .menu-btn div {
-    width: 100%;
-    height: 5px;
-    background-color: #fff;
-    border-radius: 2px;
-  }
-
-  /* Sidebar */
-  .sidebar {
-    position: fixed;
-    top: 0;
-    right: -250px; /* מוסתר כברירת מחדל */
-    width: 250px;
-    height: 100%;
-    background-color: #000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 60px;
-    transition: right 0.3s;
-    z-index: 1000;
-  }
-
-  .sidebar.active {
-    right: 0;
-  }
-
-  .sidebar button {
-    width: 80%;
-    background: linear-gradient(to right, #000000, #1a1aff);
-    border: none;
-    color: #fff;
-    padding: 14px;
-    margin: 12px 0;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .sidebar button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  }
-
-  /* Main content */
-  .main-content {
-    padding: 50px 20px;
-    max-width: 1000px;
-    margin: auto;
-    text-align: center;
-  }
-
-  .main-content img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 3px solid #4facfe;
-    object-fit: cover;
-    margin-bottom: 20px;
-  }
-
-  h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
-  }
-
-  .description {
-    font-size: 1.2em;
-    margin-bottom: 25px;
-    line-height: 1.6;
-  }
-
-  a.discord-link {
-    color: #4facfe;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    margin-bottom: 35px;
-  }
-
-  .buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
-  }
-
-  .buttons a {
-    text-decoration: none;
-    padding: 14px 25px;
-    border-radius: 8px;
-    background: linear-gradient(to right, #000000, #1a1aff);
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    transition: transform 0.2s, box-shadow 0.2s;
-    width: 220px;
-  }
-
-  .buttons a:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    h1 {
-      font-size: 2em;
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Drix - תיק העבודות</title>
+  <meta name="description" content="Drix - Portfolio" />
+  <style>
+    /* ===== בסיס ===== */
+    :root{
+      --bg1:#000000;
+      --bg2:#0b2a73;
+      --accent:#2b6cff;
+      --text:#ffffff;
+      --glass: rgba(255,255,255,.08);
+      --glass-strong: rgba(255,255,255,.14);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+      --speed: .28s;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Rubik", system-ui, Arial, Helvetica, sans-serif;
+      color:var(--text);
+      /* רקע שחור-כחול מעורבב */
+      background:
+        radial-gradient(1200px 1200px at 80% -10%, rgba(43,108,255,.25), transparent 60%),
+        radial-gradient(900px 900px at 10% 110%, rgba(7,70,200,.30), transparent 60%),
+        linear-gradient(135deg, var(--bg1) 10%, #061335 55%, var(--bg2) 100%);
+      overflow-x:hidden;
     }
 
-    .main-content img {
-      width: 120px;
-      height: 120px;
+    /* ===== ראש העמוד ===== */
+    .topbar{
+      position:fixed; inset-inline:0; top:0; z-index:50;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 18px;
+      background:linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.15));
+      backdrop-filter: blur(6px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+    }
+    .brand img{
+      width:44px; height:44px; object-fit:cover; border-radius:50%;
+      border:2px solid rgba(255,255,255,.12);
+      background:#000;
+      box-shadow: var(--shadow);
+    }
+    .brand .title{
+      font-weight:700; letter-spacing:.2px; font-size:1.05rem;
+      opacity:.95;
     }
 
-    .buttons a {
-      width: 180px;
+    /* ===== כפתור המבורגר ===== */
+    .hamburger{
+      width:46px; height:46px; border-radius:50%;
+      display:grid; place-items:center; cursor:pointer;
+      background:var(--glass);
+      border:1px solid rgba(255,255,255,.08);
+      transition:background var(--speed), transform var(--speed);
     }
-  }
-</style>
+    .hamburger:hover{ background:var(--glass-strong); transform:translateY(-1px) }
+    .hamburger span, .hamburger::before, .hamburger::after{
+      content:""; display:block; width:22px; height:2px; background:#fff; border-radius:2px;
+      transition: transform var(--speed), opacity var(--speed);
+    }
+    .hamburger::before{ margin-bottom:5px }
+    .hamburger::after{ margin-top:5px }
+    .hamburger.active span{ opacity:0 }
+    .hamburger.active::before{ transform: translateY(7px) rotate(45deg) }
+    .hamburger.active::after{ transform: translateY(-7px) rotate(-45deg) }
+
+    /* ===== תפריט צד ===== */
+    .drawer{
+      position:fixed; inset-block:0; inset-inline-end:-320px; width:300px; z-index:60;
+      background:rgba(5,10,25,.92);
+      backdrop-filter: blur(10px);
+      border-inline-start:1px solid rgba(255,255,255,.08);
+      box-shadow: -20px 0 40px rgba(0,0,0,.35);
+      transition: inset-inline-end var(--speed);
+      display:flex; flex-direction:column; padding:20px;
+      gap:14px;
+    }
+    .drawer.open{ inset-inline-end:0 }
+    .drawer h3{ margin:.2rem 0 .6rem; font-size:1rem; opacity:.85 }
+    .navlink{
+      display:flex; align-items:center; gap:10px;
+      padding:12px 14px; border-radius:14px; text-decoration:none; color:#fff;
+      background: linear-gradient(135deg, rgba(0,0,0,.6), rgba(43,108,255,.25));
+      border:1px solid rgba(255,255,255,.08);
+      transition: transform var(--speed), background var(--speed), border-color var(--speed);
+    }
+    .navlink:hover{
+      transform: translateX(-4px);
+      background: linear-gradient(135deg, rgba(43,108,255,.35), rgba(0,0,0,.55));
+      border-color: rgba(255,255,255,.18);
+    }
+
+    /* ===== תוכן מרכזי ===== */
+    .container{
+      max-width:1100px; margin:0 auto; padding:120px 18px 60px;
+      display:grid; grid-template-columns: 1fr; gap:30px;
+    }
+    .hero{
+      display:grid; gap:18px; justify-items:start;
+      background: linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08);
+      padding:26px; border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    h1{
+      margin:0;
+      font-size: clamp(1.6rem, 2.7vw + .6rem, 2.6rem);
+      line-height:1.2;
+    }
+    .subtitle{ opacity:.9; font-size:1.05rem }
+    .discord-link{
+      display:inline-block; font-weight:600; text-decoration:none;
+      color:var(--accent); border-bottom:2px solid transparent;
+      transition:border-color var(--speed), transform var(--speed);
+    }
+    .discord-link:hover{ border-color:var(--accent); transform: translateY(-1px) }
+
+    /* ===== כפתורים ראשיים ===== */
+    .actions{
+      display:flex; flex-wrap:wrap; gap:12px;
+    }
+    .btn{
+      --g1: rgba(43,108,255,.85);
+      --g2: rgba(0,0,0,.85);
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px; min-width:210px; padding:14px 18px;
+      border-radius:16px; text-decoration:none; color:#fff; font-weight:600;
+      background: linear-gradient(135deg, var(--g1), var(--g2));
+      border:1px solid rgba(255,255,255,.1);
+      box-shadow: 0 8px 24px rgba(0,0,0,.35);
+      transition: transform var(--speed), filter var(--speed), box-shadow var(--speed);
+    }
+    .btn:hover{ transform: translateY(-2px); filter:saturate(110%); box-shadow: 0 14px 28px rgba(0,0,0,.45) }
+    .btn:active{ transform: translateY(0) }
+
+    /* ===== כרטיס מידע קטן ללוגו ===== */
+    .logo-card{
+      display:flex; align-items:center; gap:16px;
+      padding:18px; border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(0,0,0,.55), rgba(43,108,255,.18));
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow: var(--shadow);
+    }
+    .logo-card img{ width:64px; height:64px; object-fit:cover; border-radius:50%; border:2px solid rgba(255,255,255,.15) }
+
+    /* ===== רספונסיביות ===== */
+    @media (min-width: 820px){
+      .container{ grid-template-columns: 1.4fr .9fr }
+    }
+  </style>
 </head>
 <body>
 
-<!-- Hamburger Menu -->
-<div class="menu-btn" onclick="toggleSidebar()">
-  <div></div>
-  <div></div>
-  <div></div>
-</div>
+  <!-- סרגל עליון + לוגו וכפתור המבורגר -->
+  <header class="topbar" aria-label="סרגל עליון">
+    <div class="brand">
+      <!-- החלף את src לתמונה שלך אם צריך -->
+      <img src="logo.png" alt="הלוגו של Drix" />
+      <div class="title">Drix</div>
+    </div>
 
-<!-- Sidebar -->
-<div class="sidebar" id="sidebar">
-  <button onclick="location.href='Bots.html'">Bots</button>
-  <button onclick="location.href='Client.html'">Clients</button>
-  <button onclick="location.href='Info.html'">Info</button>
-</div>
+    <button class="hamburger" id="hamburger" aria-label="פתח תפריט" aria-expanded="false" aria-controls="drawer">
+      <span></span>
+    </button>
+  </header>
 
-<!-- Main Content -->
-<div class="main-content">
-  <img src="https://cdn.discordapp.com/attachments/1413172343777394891/1413254513489612800/1000384843-removebg-preview.png" alt="Drix Logo">
-  <h1>Drix - Portfolio</h1>
-  <p class="description">
-    היי ברוך הבא לתיק העבודות שלי.<br>
-    על מנת לצפות בתיק העבודות בחרו את האופציה שלכם.<br>
-    לכל שאלה או מידע נוסף אני זמין בדיסקורד.
-  </p>
+  <!-- תפריט צד נפתח -->
+  <aside class="drawer" id="drawer" aria-label="תפריט צד">
+    <h3>ניווט</h3>
+    <a class="navlink" href="Bots.html">פיתוח בוטים</a>
+    <a class="navlink" href="Client.html">לקוחות ועסקאות</a>
+    <a class="navlink" href="Info.html">מידע נוסף</a>
+  </aside>
 
-  <a class="discord-link" href="https://discord.com/users/1097123991958859848" target="_blank">לחץ כאן למעבר לדיסקורד שלי</a>
+  <!-- תוכן -->
+  <main class="container">
+    <section class="hero" aria-labelledby="page-title">
+      <h1 id="page-title">Drix - תיק העבודות</h1>
+      <div class="subtitle">
+        <strong>כותרת מה שביקשתי</strong><br />
+        <span>תיאור:</span><br />
+        היי ברוך הבא לתיק העבודות שלי.<br />
+        על מנת לצפות בתיק העבודות בחרו את האופציה שלכם לכל שאלה או מידע נוסף אני זמין בדיסקורד.
+      </div>
 
-  <div class="buttons">
-    <a href="Bots.html">Bots</a>
-    <a href="Client.html">Clients</a>
-    <a href="Info.html">Info</a>
-  </div>
-</div>
+      <!-- קישור כחול לדיסקורד -->
+      <a class="discord-link" href="https://discord.gg/your-invite" target="_blank" rel="noopener">
+        לחץ כאן למעבר לדיסקורד שלי
+      </a>
 
-<script>
-  function toggleSidebar() {
-    document.getElementById('sidebar').classList.toggle('active');
-  }
-</script>
+      <!-- כפתורים ראשיים -->
+      <div class="actions" aria-label="פעולות מהירות">
+        <a class="btn" href="Bots.html" aria-label="פיתוח בוטים">פיתוח בוטים</a>
+        <a class="btn" href="Client.html" aria-label="לקוחות ועסקאות">לקוחות ועסקאות</a>
+        <a class="btn" href="Info.html" aria-label="מידע נוסף">מידע נוסף</a>
+      </div>
+    </section>
 
+    <!-- כרטיס צד עם הלוגו -->
+    <aside class="logo-card" aria-label="כרטיס לוגו">
+      <img src="logo.png" alt="לוגו Drix" />
+      <div>
+        <div style="font-weight:700; margin-bottom:4px;">הלוגו שלי</div>
+        <div style="opacity:.85">וודאו שהקובץ <code>logo.png</code> נמצא ליד הקובץ הזה, או עדכנו את הנתיב בתגית התמונה.</div>
+      </div>
+    </aside>
+  </main>
+
+  <script>
+    // פתיחה/סגירה של תפריט הצד
+    const hamburger = document.getElementById('hamburger');
+    const drawer = document.getElementById('drawer');
+
+    function toggleDrawer(){
+      const open = drawer.classList.toggle('open');
+      hamburger.classList.toggle('active', open);
+      hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    hamburger.addEventListener('click', toggleDrawer);
+
+    // סגירה בלחיצה מחוץ לתפריט
+    document.addEventListener('click', (e)=>{
+      const clickInsideDrawer = drawer.contains(e.target);
+      const clickOnHamburger = hamburger.contains(e.target);
+      if(!clickInsideDrawer && !clickOnHamburger && drawer.classList.contains('open')){
+        toggleDrawer();
+      }
+    });
+
+    // סגירה עם כפתור ESC
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape' && drawer.classList.contains('open')){
+        toggleDrawer();
+      }
+    });
+  </script>
 </body>
 </html>
