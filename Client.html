@@ -5,21 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>לקוחות והסקעות</title>
     <style>
-        /* רקע מלא */
+        /* רקע גרדיאנט כחול-שחור */
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: url('https://cdn.discordapp.com/attachments/1324170261133791233/1413267481791041596/Screenshot_20250904_235339_Discord.jpg?ex=68bb4f68&is=68b9fde8&hm=96833150a48589059c29e5665eeda75a7e5bc478e1ad4cc2bd6453c450cc9814') no-repeat center center fixed;
-            background-size: cover;
+            background: linear-gradient(135deg, #000080, #000000); /* כחול-שחור */
             color: #fff;
+        }
+
+        /* כפתור חזרה */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #000080, #000000);
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+
+        .back-button:hover {
+            transform: scale(1.05);
         }
 
         /* קונטיינר מרכזי */
         .container {
             max-width: 1200px;
-            margin: auto;
+            margin: 80px auto 20px auto; /* נותן מקום לכפתור למעלה */
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.6); /* שקיפות קליפה לקריאות */
+            background-color: rgba(0, 0, 0, 0.6); /* שקיפות לקריאה */
             border-radius: 10px;
         }
 
@@ -83,6 +103,9 @@
     </style>
 </head>
 <body>
+    <!-- כפתור חזרה -->
+    <a href="javascript:history.back()" class="back-button">חזרה</a>
+
     <div class="container">
         <h1>לקוחות והסקעות</h1>
         <p class="description">
