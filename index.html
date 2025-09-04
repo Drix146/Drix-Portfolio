@@ -9,53 +9,25 @@
   body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    background: #ffffff;
-    color: #000;
-  }
-
-  /* כפתור תפריט צד (Hamburger) */
-  .menu-btn {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 35px;
-    height: 30px;
+    background: linear-gradient(135deg, #000000, #1a1aff);
+    color: #fff;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-    z-index: 1001;
   }
 
-  .menu-btn div {
-    width: 100%;
-    height: 4px;
-    background-color: #000;
-    border-radius: 2px;
-  }
-
-  /* Sidebar נפתח */
+  /* Sidebar */
   .sidebar {
     position: fixed;
     top: 0;
-    right: -250px; /* מוסתר כברירת מחדל */
-    width: 250px;
+    left: 0;
+    width: 220px;
     height: 100%;
     background-color: #000;
-    color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 30px;
-    transition: right 0.3s;
-    z-index: 1000;
+    padding-top: 20px;
   }
 
-  .sidebar.active {
-    right: 0; /* מופיע כשלחצו על התפריט */
-  }
-
-  /* לוגו */
   .sidebar img {
     width: 100px;
     height: 100px;
@@ -65,17 +37,16 @@
     object-fit: cover;
   }
 
-  /* כפתורים בתפריט */
   .sidebar button {
-    width: 80%;
-    background: linear-gradient(to right, #4facfe, #00f2fe);
+    width: 90%;
+    background: linear-gradient(to right, #000000, #1a1aff);
     border: none;
     color: #fff;
     padding: 12px;
     margin: 8px 0;
     border-radius: 8px;
-    cursor: pointer;
     font-weight: bold;
+    cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
   }
 
@@ -84,11 +55,11 @@
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   }
 
-  /* תוכן ראשי */
+  /* Main content */
   .main-content {
-    padding: 50px 20px;
+    margin-left: 240px;
+    padding: 40px;
     max-width: 900px;
-    margin: auto;
   }
 
   h1 {
@@ -98,24 +69,32 @@
 
   .description {
     font-size: 1.2em;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     line-height: 1.6;
+  }
+
+  a.discord-link {
+    color: #4facfe;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 30px;
   }
 
   .buttons {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 15px;
-    margin-bottom: 30px;
   }
 
   .buttons a {
     text-decoration: none;
     padding: 12px 20px;
     border-radius: 8px;
-    background: linear-gradient(to right, #4facfe, #00f2fe);
+    background: linear-gradient(to right, #000000, #1a1aff);
     color: white;
     font-weight: bold;
+    text-align: center;
     transition: transform 0.2s, box-shadow 0.2s;
   }
 
@@ -124,61 +103,56 @@
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   }
 
-  .small-text {
-    font-size: 1.1em;
-  }
-
   /* Responsive */
   @media (max-width: 768px) {
     .main-content {
+      margin-left: 0;
       padding: 20px;
     }
-    h1 {
-      font-size: 2em;
+
+    .sidebar {
+      width: 60px;
+    }
+
+    .sidebar img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 10px;
+    }
+
+    .sidebar button {
+      padding: 8px;
+      font-size: 12px;
     }
   }
+
 </style>
 </head>
 <body>
 
-<!-- Hamburger Menu -->
-<div class="menu-btn" onclick="toggleSidebar()">
-  <div></div>
-  <div></div>
-  <div></div>
-</div>
-
-<!-- Sidebar -->
-<div class="sidebar" id="sidebar">
+<div class="sidebar">
   <img src="https://cdn.discordapp.com/attachments/1413172343777394891/1413254513489612800/1000384843-removebg-preview.png" alt="Drix">
-  <button onclick="location.href='Bots.html'">תמונות בוטים</button>
-  <button onclick="location.href='Client.html'">תמונות עסקאות</button>
-  <button onclick="location.href='Info.html'">מידע נוסף</button>
+  <button onclick="location.href='Bots.html'">Bots</button>
+  <button onclick="location.href='Client.html'">Clients</button>
+  <button onclick="location.href='Info.html'">Info</button>
 </div>
 
-<!-- Main Content -->
 <div class="main-content">
   <h1>Drix - Portfolio</h1>
   <p class="description">
-    היי ברוך הבא לתיק העבודות שלי! כאן תוכלו לראות לקוחות שעבדתי איתם, תמונות של עסקאות ועוד.<br>
-    לכל דבר נוסף אני זמין בדיסקורד.
+    היי ברוך הבא לתיק העבודות שלי.<br>
+    על מנת לצפות בתיק העבודות בחרו את האופציה שלכם.<br>
+    לכל שאלה או מידע נוסף אני זמין בדיסקורד.
   </p>
 
+  <a class="discord-link" href="https://discord.com/users/1097123991958859848" target="_blank">לחץ כאן למעבר לדיסקורד שלי</a>
+
   <div class="buttons">
-    <a href="https://discord.com/users/1097123991958859848" target="_blank">לפרופיל שלי</a>
-    <a href="Bots.html">תמונות של בוטים</a>
-    <a href="Client.html">תמונות של עסקאות</a>
-    <a href="Info.html">קבלת מידע נוסף</a>
+    <a href="Bots.html">בוטים</a>
+    <a href="Client.html">עסקאות</a>
+    <a href="Info.html">מידע נוסף</a>
   </div>
-
-  <p class="small-text">היי, אנא בחר תמונות / מידע שתרצה לראות.</p>
 </div>
-
-<script>
-  function toggleSidebar() {
-    document.getElementById('sidebar').classList.toggle('active');
-  }
-</script>
 
 </body>
 </html>
