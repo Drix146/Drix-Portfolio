@@ -11,39 +11,56 @@
     font-family: 'Roboto', sans-serif;
     background: linear-gradient(135deg, #000000, #1a1aff);
     color: #fff;
+  }
+
+  /* Hamburger Menu */
+  .menu-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 30px;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .menu-btn div {
+    width: 100%;
+    height: 5px;
+    background-color: #fff;
+    border-radius: 2px;
   }
 
   /* Sidebar */
   .sidebar {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 220px;
+    right: -250px; /* מוסתר כברירת מחדל */
+    width: 250px;
     height: 100%;
     background-color: #000;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 20px;
+    padding-top: 60px;
+    transition: right 0.3s;
+    z-index: 1000;
   }
 
-  .sidebar img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-    border: 3px solid #4facfe;
-    object-fit: cover;
+  .sidebar.active {
+    right: 0;
   }
 
   .sidebar button {
-    width: 90%;
+    width: 80%;
     background: linear-gradient(to right, #000000, #1a1aff);
     border: none;
     color: #fff;
-    padding: 12px;
-    margin: 8px 0;
+    padding: 14px;
+    margin: 12px 0;
     border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
@@ -57,19 +74,29 @@
 
   /* Main content */
   .main-content {
-    margin-left: 240px;
-    padding: 40px;
-    max-width: 900px;
+    padding: 50px 20px;
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+  }
+
+  .main-content img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #4facfe;
+    object-fit: cover;
+    margin-bottom: 20px;
   }
 
   h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
+    font-size: 3em;
+    margin-bottom: 20px;
   }
 
   .description {
     font-size: 1.2em;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     line-height: 1.6;
   }
 
@@ -78,24 +105,26 @@
     text-decoration: none;
     font-weight: bold;
     display: inline-block;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
   }
 
   .buttons {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    align-items: center;
   }
 
   .buttons a {
     text-decoration: none;
-    padding: 12px 20px;
+    padding: 14px 25px;
     border-radius: 8px;
     background: linear-gradient(to right, #000000, #1a1aff);
     color: white;
     font-weight: bold;
     text-align: center;
     transition: transform 0.2s, box-shadow 0.2s;
+    width: 220px;
   }
 
   .buttons a:hover {
@@ -105,39 +134,40 @@
 
   /* Responsive */
   @media (max-width: 768px) {
-    .main-content {
-      margin-left: 0;
-      padding: 20px;
+    h1 {
+      font-size: 2em;
     }
 
-    .sidebar {
-      width: 60px;
+    .main-content img {
+      width: 120px;
+      height: 120px;
     }
 
-    .sidebar img {
-      width: 60px;
-      height: 60px;
-      margin-bottom: 10px;
-    }
-
-    .sidebar button {
-      padding: 8px;
-      font-size: 12px;
+    .buttons a {
+      width: 180px;
     }
   }
-
 </style>
 </head>
 <body>
 
-<div class="sidebar">
-  <img src="https://cdn.discordapp.com/attachments/1413172343777394891/1413254513489612800/1000384843-removebg-preview.png" alt="Drix">
+<!-- Hamburger Menu -->
+<div class="menu-btn" onclick="toggleSidebar()">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
   <button onclick="location.href='Bots.html'">Bots</button>
   <button onclick="location.href='Client.html'">Clients</button>
   <button onclick="location.href='Info.html'">Info</button>
 </div>
 
+<!-- Main Content -->
 <div class="main-content">
+  <img src="https://cdn.discordapp.com/attachments/1413172343777394891/1413254513489612800/1000384843-removebg-preview.png" alt="Drix Logo">
   <h1>Drix - Portfolio</h1>
   <p class="description">
     היי ברוך הבא לתיק העבודות שלי.<br>
@@ -148,11 +178,17 @@
   <a class="discord-link" href="https://discord.com/users/1097123991958859848" target="_blank">לחץ כאן למעבר לדיסקורד שלי</a>
 
   <div class="buttons">
-    <a href="Bots.html">בוטים</a>
-    <a href="Client.html">עסקאות</a>
-    <a href="Info.html">מידע נוסף</a>
+    <a href="Bots.html">Bots</a>
+    <a href="Client.html">Clients</a>
+    <a href="Info.html">Info</a>
   </div>
 </div>
+
+<script>
+  function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('active');
+  }
+</script>
 
 </body>
 </html>
