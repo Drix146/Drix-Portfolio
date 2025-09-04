@@ -4,18 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Drix - תיק העבודות</title>
-  <meta name="description" content="Drix - Portfolio" />
   <style>
     :root{
       --bg1:#000000;
       --bg2:#0b2a73;
       --accent:#2b6cff;
       --text:#ffffff;
-      --glass: rgba(255,255,255,.08);
-      --glass-strong: rgba(255,255,255,.14);
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 18px;
-      --speed: .28s;
+      --speed:.28s;
     }
     *{box-sizing:border-box}
     body{
@@ -26,76 +21,45 @@
         radial-gradient(1200px 1200px at 80% -10%, rgba(43,108,255,.25), transparent 60%),
         radial-gradient(900px 900px at 10% 110%, rgba(7,70,200,.30), transparent 60%),
         linear-gradient(135deg, var(--bg1) 10%, #061335 55%, var(--bg2) 100%);
-      overflow-x:hidden;
     }
     .topbar{
       position:fixed; inset-inline:0; top:0; z-index:50;
       display:flex; align-items:center; justify-content:space-between;
       padding:14px 18px;
       background:linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.15));
-      backdrop-filter: blur(6px);
-      border-bottom:1px solid rgba(255,255,255,.06);
     }
     .brand{
       display:flex; align-items:center; gap:12px;
     }
-    .brand img{
-      width:44px; height:44px; object-fit:cover; border-radius:50%;
-      border:2px solid rgba(255,255,255,.12);
-      background:#000;
-      box-shadow: var(--shadow);
+    .brand .title{ font-weight:700; font-size:1.05rem; }
+    .hamburger{ width:40px; height:40px; background:none; border:none; cursor:pointer; position:relative }
+    .hamburger span,.hamburger::before,.hamburger::after{
+      content:""; display:block; width:24px; height:2px; background:#fff; margin:6px auto;
+      transition:.3s;
     }
-    .brand .title{ font-weight:700; font-size:1.05rem; opacity:.95 }
-    .hamburger{
-      width:46px; height:46px; border-radius:50%;
-      display:grid; place-items:center; cursor:pointer;
-      background:var(--glass);
-      border:1px solid rgba(255,255,255,.08);
-    }
-    .hamburger span, .hamburger::before, .hamburger::after{
-      content:""; display:block; width:22px; height:2px; background:#fff; border-radius:2px;
-      transition: transform var(--speed), opacity var(--speed);
-    }
-    .hamburger::before{ margin-bottom:5px }
-    .hamburger::after{ margin-top:5px }
-    .hamburger.active span{ opacity:0 }
-    .hamburger.active::before{ transform: translateY(7px) rotate(45deg) }
-    .hamburger.active::after{ transform: translateY(-7px) rotate(-45deg) }
-
+    .hamburger.active span{opacity:0}
+    .hamburger.active::before{transform:translateY(8px) rotate(45deg)}
+    .hamburger.active::after{transform:translateY(-8px) rotate(-45deg)}
     .drawer{
-      position:fixed; inset-block:0; inset-inline-end:-320px; width:300px; z-index:60;
-      background:rgba(5,10,25,.92);
-      backdrop-filter: blur(10px);
-      transition: inset-inline-end var(--speed);
-      display:flex; flex-direction:column; padding:20px;
-      gap:14px;
+      position:fixed; top:0; bottom:0; right:-280px; width:260px;
+      background:rgba(5,10,25,.95); padding:20px; transition:.3s; z-index:60;
     }
-    .drawer.open{ inset-inline-end:0 }
+    .drawer.open{right:0}
     .navlink{
-      display:block; padding:12px 14px; border-radius:14px;
-      text-decoration:none; color:#fff;
-      background: linear-gradient(135deg, rgba(0,0,0,.6), rgba(43,108,255,.25));
+      display:block; padding:12px; margin-bottom:10px; border-radius:10px;
+      background:linear-gradient(135deg, rgba(0,0,0,.7), rgba(43,108,255,.3));
+      color:#fff; text-decoration:none;
     }
-    .container{
-      max-width:900px; margin:0 auto; padding:120px 18px 60px;
-      display:grid; gap:30px; text-align:center;
-    }
-    .hero{
-      display:grid; gap:18px;
-      background: linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      border:1px solid rgba(255,255,255,.08);
-      padding:26px; border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    h1{ margin:0; font-size:2rem; line-height:1.2 }
-    .subtitle{ opacity:.9; font-size:1.05rem }
-    .discord-link{
-      color:var(--accent); font-weight:600; text-decoration:none;
-    }
-    .actions{ display:flex; flex-wrap:wrap; justify-content:center; gap:12px; }
+    .container{ max-width:900px; margin:0 auto; padding:120px 18px 60px; text-align:center }
+    .hero{ background:rgba(255,255,255,.05); padding:26px; border-radius:16px }
+    h1{ margin-top:16px; font-size:2rem }
+    .subtitle{ opacity:.9; font-size:1.05rem; margin-bottom:16px }
+    .discord-link{ color:var(--accent); font-weight:600; text-decoration:none }
+    .actions{ display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-top:18px }
     .btn{
-      min-width:200px; padding:14px; border-radius:16px; text-decoration:none; color:#fff; font-weight:600;
-      background: linear-gradient(135deg, rgba(43,108,255,.85), rgba(0,0,0,.85));
+      min-width:200px; padding:14px; border-radius:14px;
+      background:linear-gradient(135deg, rgba(43,108,255,.85), rgba(0,0,0,.85));
+      color:#fff; text-decoration:none; font-weight:600;
     }
   </style>
 </head>
@@ -104,7 +68,6 @@
   <!-- סרגל עליון -->
   <header class="topbar">
     <div class="brand">
-      <img src="logo.png" alt="Drix logo" />
       <div class="title">Drix</div>
     </div>
     <button class="hamburger" id="hamburger"><span></span></button>
@@ -120,14 +83,13 @@
   <!-- תוכן -->
   <main class="container">
     <section class="hero">
-      <!-- הלוגו למעלה במרכז -->
-      <img src="logo.png" alt="לוגו" style="width:120px; margin:0 auto; border-radius:50%;" />
+      <!-- כאן התמונה שלך -->
+      <img src="logo.png" alt="הלוגו שלי" style="width:160px; margin:0 auto; display:block;" />
       <h1>Drix - תיק העבודות</h1>
       <div class="subtitle">
-        <strong>כותרת מה שביקשתי</strong><br />
-        תיאור: <br />
         היי ברוך הבא לתיק העבודות שלי.<br />
-        על מנת לצפות בתיק העבודות בחרו את האופציה שלכם לכל שאלה או מידע נוסף אני זמין בדיסקורד
+        על מנת לצפות בתיק העבודות בחרו את האופציה שלכם.<br />
+        לכל שאלה או מידע נוסף אני זמין בדיסקורד.
       </div>
       <a class="discord-link" href="https://discord.gg/your-invite" target="_blank">
         לחץ כאן למעבר לדיסקורד שלי
@@ -141,9 +103,9 @@
   </main>
 
   <script>
-    const hamburger = document.getElementById('hamburger');
-    const drawer = document.getElementById('drawer');
-    hamburger.addEventListener('click', ()=>{
+    const hamburger=document.getElementById('hamburger');
+    const drawer=document.getElementById('drawer');
+    hamburger.addEventListener('click',()=>{
       drawer.classList.toggle('open');
       hamburger.classList.toggle('active');
     });
