@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>לקוחות והסקעות</title>
+  <style>
+    :root{
+      --bg1:#000000;
+      --bg2:#0b2a73;
+      --accent:#2b6cff;
+      --text:#ffffff;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Rubik",Arial,Helvetica,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 1200px at 80% -10%, rgba(43,108,255,.25), transparent 60%),
+        radial-gradient(900px 900px at 10% 110%, rgba(7,70,200,.30), transparent 60%),
+        linear-gradient(135deg, var(--bg1) 10%, #061335 55%, var(--bg2) 100%);
+    }
+    .container{ max-width:1000px; margin:0 auto; padding:100px 18px; text-align:center }
+    h1{ font-size:2rem; margin-bottom:10px }
+    .subtitle{ opacity:.9; font-size:1.05rem; margin-bottom:26px }
+
+    .card{
+      background:rgba(255,255,255,.05);
+      border-radius:14px;
+      padding:20px;
+      margin-bottom:24px;
+      text-align:right;
+    }
+    .card h2{
+      font-size:1.3rem;
+      margin-bottom:12px;
+      border-bottom:1px solid rgba(255,255,255,.15);
+      padding-bottom:6px;
+    }
+    .clients-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+    .clients-list li{
+      margin:8px 0;
+      padding-left:22px;
+      position:relative;
+    }
+    .clients-list li::before{
+      content:"●";
+      color:var(--accent);
+      position:absolute;
+      left:0;
+      top:0;
+    }
+    .deal-img{
+      width:100%;
+      max-width:700px;
+      border-radius:12px;
+      margin:14px 0;
+      display:block;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <h1>לקוחות והסקעות</h1>
+    <div class="subtitle">
+      היי כאן תוכלו למצוא את רשימת הלקוחות שלי ואת התמונות של כל ההסקעות שנסגרו.
+    </div>
+
+    <!-- קלף לקוחות -->
+    <div class="card">
+      <h2>לקוחות:</h2>
+      <ul class="clients-list">
+        <li>Nexa</li>
+        <li>tenzertomer</li>
+        <li>moonboy8888</li>
+        <li>tupac_666_</li>
+        <li>mrvenom1</li>
+      </ul>
+    </div>
+
+    <!-- קלף עסקאות -->
+    <div class="card">
+      <h2>עסקאות:</h2>
+      <img class="deal-img" src="https://cdn.discordapp.com/attachments/1324170261133791233/1413267481791041596/Screenshot_20250904_235339_Discord.jpg?ex=68bb4f68&is=68b9fde8&hm=96833150a48589059c29e5665eeda75a7e5bc478e1ad4cc2bd6453c450cc9814&" alt="תמונה מעסקה" />
+      <div class="subtitle">
+        כאן תוכלו לראות דוגמה של עסקה שנסגרה.
+      </div>
+    </div>
+  </main>
+</body>
+</html>
