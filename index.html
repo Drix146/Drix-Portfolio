@@ -6,7 +6,6 @@
   <title>Drix - תיק העבודות</title>
   <meta name="description" content="Drix - Portfolio" />
   <style>
-    /* ===== בסיס ===== */
     :root{
       --bg1:#000000;
       --bg2:#0b2a73;
@@ -19,20 +18,16 @@
       --speed: .28s;
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
     body{
       margin:0;
       font-family: "Rubik", system-ui, Arial, Helvetica, sans-serif;
       color:var(--text);
-      /* רקע שחור-כחול מעורבב */
       background:
         radial-gradient(1200px 1200px at 80% -10%, rgba(43,108,255,.25), transparent 60%),
         radial-gradient(900px 900px at 10% 110%, rgba(7,70,200,.30), transparent 60%),
         linear-gradient(135deg, var(--bg1) 10%, #061335 55%, var(--bg2) 100%);
       overflow-x:hidden;
     }
-
-    /* ===== ראש העמוד ===== */
     .topbar{
       position:fixed; inset-inline:0; top:0; z-index:50;
       display:flex; align-items:center; justify-content:space-between;
@@ -50,20 +45,13 @@
       background:#000;
       box-shadow: var(--shadow);
     }
-    .brand .title{
-      font-weight:700; letter-spacing:.2px; font-size:1.05rem;
-      opacity:.95;
-    }
-
-    /* ===== כפתור המבורגר ===== */
+    .brand .title{ font-weight:700; font-size:1.05rem; opacity:.95 }
     .hamburger{
       width:46px; height:46px; border-radius:50%;
       display:grid; place-items:center; cursor:pointer;
       background:var(--glass);
       border:1px solid rgba(255,255,255,.08);
-      transition:background var(--speed), transform var(--speed);
     }
-    .hamburger:hover{ background:var(--glass-strong); transform:translateY(-1px) }
     .hamburger span, .hamburger::before, .hamburger::after{
       content:""; display:block; width:22px; height:2px; background:#fff; border-radius:2px;
       transition: transform var(--speed), opacity var(--speed);
@@ -74,109 +62,56 @@
     .hamburger.active::before{ transform: translateY(7px) rotate(45deg) }
     .hamburger.active::after{ transform: translateY(-7px) rotate(-45deg) }
 
-    /* ===== תפריט צד ===== */
     .drawer{
       position:fixed; inset-block:0; inset-inline-end:-320px; width:300px; z-index:60;
       background:rgba(5,10,25,.92);
       backdrop-filter: blur(10px);
-      border-inline-start:1px solid rgba(255,255,255,.08);
-      box-shadow: -20px 0 40px rgba(0,0,0,.35);
       transition: inset-inline-end var(--speed);
       display:flex; flex-direction:column; padding:20px;
       gap:14px;
     }
     .drawer.open{ inset-inline-end:0 }
-    .drawer h3{ margin:.2rem 0 .6rem; font-size:1rem; opacity:.85 }
     .navlink{
-      display:flex; align-items:center; gap:10px;
-      padding:12px 14px; border-radius:14px; text-decoration:none; color:#fff;
+      display:block; padding:12px 14px; border-radius:14px;
+      text-decoration:none; color:#fff;
       background: linear-gradient(135deg, rgba(0,0,0,.6), rgba(43,108,255,.25));
-      border:1px solid rgba(255,255,255,.08);
-      transition: transform var(--speed), background var(--speed), border-color var(--speed);
     }
-    .navlink:hover{
-      transform: translateX(-4px);
-      background: linear-gradient(135deg, rgba(43,108,255,.35), rgba(0,0,0,.55));
-      border-color: rgba(255,255,255,.18);
-    }
-
-    /* ===== תוכן מרכזי ===== */
     .container{
-      max-width:1100px; margin:0 auto; padding:120px 18px 60px;
-      display:grid; grid-template-columns: 1fr; gap:30px;
+      max-width:900px; margin:0 auto; padding:120px 18px 60px;
+      display:grid; gap:30px; text-align:center;
     }
     .hero{
-      display:grid; gap:18px; justify-items:start;
+      display:grid; gap:18px;
       background: linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
       border:1px solid rgba(255,255,255,.08);
       padding:26px; border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
-    h1{
-      margin:0;
-      font-size: clamp(1.6rem, 2.7vw + .6rem, 2.6rem);
-      line-height:1.2;
-    }
+    h1{ margin:0; font-size:2rem; line-height:1.2 }
     .subtitle{ opacity:.9; font-size:1.05rem }
     .discord-link{
-      display:inline-block; font-weight:600; text-decoration:none;
-      color:var(--accent); border-bottom:2px solid transparent;
-      transition:border-color var(--speed), transform var(--speed);
+      color:var(--accent); font-weight:600; text-decoration:none;
     }
-    .discord-link:hover{ border-color:var(--accent); transform: translateY(-1px) }
-
-    /* ===== כפתורים ראשיים ===== */
-    .actions{
-      display:flex; flex-wrap:wrap; gap:12px;
-    }
+    .actions{ display:flex; flex-wrap:wrap; justify-content:center; gap:12px; }
     .btn{
-      --g1: rgba(43,108,255,.85);
-      --g2: rgba(0,0,0,.85);
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px; min-width:210px; padding:14px 18px;
-      border-radius:16px; text-decoration:none; color:#fff; font-weight:600;
-      background: linear-gradient(135deg, var(--g1), var(--g2));
-      border:1px solid rgba(255,255,255,.1);
-      box-shadow: 0 8px 24px rgba(0,0,0,.35);
-      transition: transform var(--speed), filter var(--speed), box-shadow var(--speed);
-    }
-    .btn:hover{ transform: translateY(-2px); filter:saturate(110%); box-shadow: 0 14px 28px rgba(0,0,0,.45) }
-    .btn:active{ transform: translateY(0) }
-
-    /* ===== כרטיס מידע קטן ללוגו ===== */
-    .logo-card{
-      display:flex; align-items:center; gap:16px;
-      padding:18px; border-radius: var(--radius);
-      background: linear-gradient(135deg, rgba(0,0,0,.55), rgba(43,108,255,.18));
-      border:1px solid rgba(255,255,255,.08);
-      box-shadow: var(--shadow);
-    }
-    .logo-card img{ width:64px; height:64px; object-fit:cover; border-radius:50%; border:2px solid rgba(255,255,255,.15) }
-
-    /* ===== רספונסיביות ===== */
-    @media (min-width: 820px){
-      .container{ grid-template-columns: 1.4fr .9fr }
+      min-width:200px; padding:14px; border-radius:16px; text-decoration:none; color:#fff; font-weight:600;
+      background: linear-gradient(135deg, rgba(43,108,255,.85), rgba(0,0,0,.85));
     }
   </style>
 </head>
 <body>
 
-  <!-- סרגל עליון + לוגו וכפתור המבורגר -->
-  <header class="topbar" aria-label="סרגל עליון">
+  <!-- סרגל עליון -->
+  <header class="topbar">
     <div class="brand">
-      <!-- החלף את src לתמונה שלך אם צריך -->
-      <img src="logo.png" alt="הלוגו של Drix" />
+      <img src="logo.png" alt="Drix logo" />
       <div class="title">Drix</div>
     </div>
-
-    <button class="hamburger" id="hamburger" aria-label="פתח תפריט" aria-expanded="false" aria-controls="drawer">
-      <span></span>
-    </button>
+    <button class="hamburger" id="hamburger"><span></span></button>
   </header>
 
-  <!-- תפריט צד נפתח -->
-  <aside class="drawer" id="drawer" aria-label="תפריט צד">
-    <h3>ניווט</h3>
+  <!-- תפריט צד -->
+  <aside class="drawer" id="drawer">
     <a class="navlink" href="Bots.html">פיתוח בוטים</a>
     <a class="navlink" href="Client.html">לקוחות ועסקאות</a>
     <a class="navlink" href="Info.html">מידע נוסף</a>
@@ -184,64 +119,33 @@
 
   <!-- תוכן -->
   <main class="container">
-    <section class="hero" aria-labelledby="page-title">
-      <h1 id="page-title">Drix - תיק העבודות</h1>
+    <section class="hero">
+      <!-- הלוגו למעלה במרכז -->
+      <img src="logo.png" alt="לוגו" style="width:120px; margin:0 auto; border-radius:50%;" />
+      <h1>Drix - תיק העבודות</h1>
       <div class="subtitle">
         <strong>כותרת מה שביקשתי</strong><br />
-        <span>תיאור:</span><br />
+        תיאור: <br />
         היי ברוך הבא לתיק העבודות שלי.<br />
-        על מנת לצפות בתיק העבודות בחרו את האופציה שלכם לכל שאלה או מידע נוסף אני זמין בדיסקורד.
+        על מנת לצפות בתיק העבודות בחרו את האופציה שלכם לכל שאלה או מידע נוסף אני זמין בדיסקורד
       </div>
-
-      <!-- קישור כחול לדיסקורד -->
-      <a class="discord-link" href="https://discord.gg/your-invite" target="_blank" rel="noopener">
+      <a class="discord-link" href="https://discord.gg/your-invite" target="_blank">
         לחץ כאן למעבר לדיסקורד שלי
       </a>
-
-      <!-- כפתורים ראשיים -->
-      <div class="actions" aria-label="פעולות מהירות">
-        <a class="btn" href="Bots.html" aria-label="פיתוח בוטים">פיתוח בוטים</a>
-        <a class="btn" href="Client.html" aria-label="לקוחות ועסקאות">לקוחות ועסקאות</a>
-        <a class="btn" href="Info.html" aria-label="מידע נוסף">מידע נוסף</a>
+      <div class="actions">
+        <a class="btn" href="Bots.html">פיתוח בוטים</a>
+        <a class="btn" href="Client.html">לקוחות ועסקאות</a>
+        <a class="btn" href="Info.html">מידע נוסף</a>
       </div>
     </section>
-
-    <!-- כרטיס צד עם הלוגו -->
-    <aside class="logo-card" aria-label="כרטיס לוגו">
-      <img src="logo.png" alt="לוגו Drix" />
-      <div>
-        <div style="font-weight:700; margin-bottom:4px;">הלוגו שלי</div>
-        <div style="opacity:.85">וודאו שהקובץ <code>logo.png</code> נמצא ליד הקובץ הזה, או עדכנו את הנתיב בתגית התמונה.</div>
-      </div>
-    </aside>
   </main>
 
   <script>
-    // פתיחה/סגירה של תפריט הצד
     const hamburger = document.getElementById('hamburger');
     const drawer = document.getElementById('drawer');
-
-    function toggleDrawer(){
-      const open = drawer.classList.toggle('open');
-      hamburger.classList.toggle('active', open);
-      hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    }
-    hamburger.addEventListener('click', toggleDrawer);
-
-    // סגירה בלחיצה מחוץ לתפריט
-    document.addEventListener('click', (e)=>{
-      const clickInsideDrawer = drawer.contains(e.target);
-      const clickOnHamburger = hamburger.contains(e.target);
-      if(!clickInsideDrawer && !clickOnHamburger && drawer.classList.contains('open')){
-        toggleDrawer();
-      }
-    });
-
-    // סגירה עם כפתור ESC
-    document.addEventListener('keydown', (e)=>{
-      if(e.key === 'Escape' && drawer.classList.contains('open')){
-        toggleDrawer();
-      }
+    hamburger.addEventListener('click', ()=>{
+      drawer.classList.toggle('open');
+      hamburger.classList.toggle('active');
     });
   </script>
 </body>
