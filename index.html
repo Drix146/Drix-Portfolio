@@ -4,85 +4,102 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Drix - Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
+  /* בסיסי */
   body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #ffffff;
-    color: #000000;
+    font-family: 'Roboto', sans-serif;
+    background: #ffffff;
+    color: #000;
+    display: flex;
   }
 
-  /* פס צד */
+  /* Sidebar */
   .sidebar {
+    width: 250px;
+    background-color: #000;
+    color: #fff;
+    height: 100vh;
     position: fixed;
-    left: 0;
-    top: 0;
-    width: 220px;
-    height: 100%;
-    background-color: #000000;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 20px;
-    z-index: 1000;
+    padding-top: 30px;
+    transition: width 0.3s;
   }
 
   .sidebar img {
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
-    width: 120px;
-    height: 120px;
     margin-bottom: 20px;
+    border: 3px solid #4facfe;
   }
 
   .sidebar button {
+    width: 80%;
     background: linear-gradient(to right, #4facfe, #00f2fe);
     border: none;
     color: #fff;
-    padding: 12px 20px;
-    margin: 5px 0;
-    cursor: pointer;
-    width: 90%;
+    padding: 12px;
+    margin: 8px 0;
     border-radius: 8px;
-    font-size: 14px;
-    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .sidebar button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   }
 
   /* תוכן ראשי */
   .main-content {
-    margin-left: 240px;
-    padding: 40px;
+    margin-left: 250px;
+    padding: 50px;
+    flex: 1;
   }
 
   h1 {
-    font-size: 2.5em;
+    font-size: 3em;
     margin-bottom: 10px;
   }
 
-  p.description {
+  .description {
     font-size: 1.2em;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    line-height: 1.6;
   }
 
   .buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 30px;
+    gap: 20px;
   }
 
   .buttons a {
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 8px;
     background: linear-gradient(to right, #4facfe, #00f2fe);
     color: white;
-    padding: 12px 25px;
-    border-radius: 8px;
-    text-decoration: none;
     font-weight: bold;
-    transition: transform 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
   }
 
   .buttons a:hover {
     transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   }
+
+  /* טקסט קטן מתחת לכפתורים */
+  .small-text {
+    margin-top: 30px;
+    font-size: 1.1em;
+  }
+
 </style>
 </head>
 <body>
@@ -97,7 +114,7 @@
 <div class="main-content">
   <h1>Drix - Portfolio</h1>
   <p class="description">
-    היי ברוך הבא לתיק העבודות שלי, כאן בעצם תוכלו לראות לקוחות שעבדתי איתם, תמונות של עסקאות וכו'.<br>
+    היי ברוך הבא לתיק העבודות שלי! כאן תוכלו לראות לקוחות שעבדתי איתם, תמונות של עסקאות ועוד.<br>
     לכל דבר נוסף אני זמין בדיסקורד.
   </p>
 
@@ -108,7 +125,7 @@
     <a href="Info.html">קבלת מידע נוסף</a>
   </div>
 
-  <p>היי, אנא בחר תמונות / מידע שתרצה לראות.</p>
+  <p class="small-text">היי, אנא בחר תמונות / מידע שתרצה לראות.</p>
 </div>
 
 </body>
