@@ -1,133 +1,112 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="he">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>לקוחות והסקעות</title>
-  <style>
-    :root{
-      --bg1:#000000;
-      --bg2:#0b2a73;
-      --accent:#2b6cff;
-      --text:#ffffff;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>לקוחות והסקעות</title>
+    <style>
+        /* רקע מלא */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('https://cdn.discordapp.com/attachments/1324170261133791233/1413267481791041596/Screenshot_20250904_235339_Discord.jpg?ex=68bb4f68&is=68b9fde8&hm=96833150a48589059c29e5665eeda75a7e5bc478e1ad4cc2bd6453c450cc9814') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+        /* קונטיינר מרכזי */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6); /* שקיפות קליפה לקריאות */
+            border-radius: 10px;
+        }
 
-    html, body {
-      height: 100%;
-      min-height: 100vh;
-      font-family:"Rubik",Arial,Helvetica,sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(1200px 1200px at 80% -10%, rgba(43,108,255,.25), transparent 60%),
-        radial-gradient(900px 900px at 10% 110%, rgba(7,70,200,.30), transparent 60%),
-        linear-gradient(135deg, var(--bg1) 10%, #061335 55%, var(--bg2) 100%);
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-    }
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
 
-    .container{
-      max-width:1000px;
-      width: 90%;
-      margin: 0 auto;
-      padding: 120px 18px 60px;
-      text-align:center;
-    }
+        p.description {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+        }
 
-    h1{
-      font-size:2rem;
-      margin-bottom:10px;
-    }
+        /* קלפים */
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
 
-    .subtitle{
-      opacity:.9;
-      font-size:1.05rem;
-      margin-bottom:26px;
-      line-height:1.5;
-    }
+        .card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            min-width: 250px;
+            flex: 1 1 250px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
 
-    .card{
-      background: rgba(255,255,255,.05);
-      border-radius:14px;
-      padding:20px;
-      margin-bottom:24px;
-      text-align:right;
-      overflow: hidden;
-    }
+        .card h2 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
 
-    .card h2{
-      font-size:1.3rem;
-      margin-bottom:12px;
-      border-bottom:1px solid rgba(255,255,255,.15);
-      padding-bottom:6px;
-    }
+        .client-list {
+            list-style: none;
+            padding: 0;
+        }
 
-    .clients-list{
-      list-style:none;
-      padding:0;
-      margin:0;
-    }
+        .client-list li::before {
+            content: "• ";
+            color: #00f; /* נקודה כחולה */
+            font-weight: bold;
+        }
 
-    .clients-list li{
-      margin:8px 0;
-      padding-left:22px;
-      position:relative;
-    }
+        .image-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+        }
 
-    .clients-list li::before{
-      content:"●";
-      color:var(--accent);
-      position:absolute;
-      left:0;
-      top:0;
-    }
-
-    .deal-img{
-      width:100%;
-      max-width:700px;
-      border-radius:12px;
-      margin:14px 0;
-      display:block;
-    }
-
-    @media (max-width: 600px){
-      h1 { font-size: 1.5rem; }
-      .subtitle { font-size: 0.95rem; }
-      .card h2 { font-size: 1.1rem; }
-      .deal-img { max-width: 100%; }
-    }
-  </style>
+        @media (max-width: 600px) {
+            .cards {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
-  <main class="container">
-    <h1>לקוחות והסקעות</h1>
-    <div class="subtitle">
-      היי כאן תוכלו למצוא את רשימת הלקוחות שלי ואת התמונות של כל ההסקעות שנסגרו.
-    </div>
+    <div class="container">
+        <h1>לקוחות והסקעות</h1>
+        <p class="description">
+            היי כאן תוכלו למצוא את רשימת הלקוחות שלי ואת התמונות של כל ההסקעות שנסגרו.
+        </p>
 
-    <!-- קלף לקוחות -->
-    <div class="card">
-      <h2>לקוחות:</h2>
-      <ul class="clients-list">
-        <li>Nexa</li>
-        <li>tenzertomer</li>
-        <li>moonboy8888</li>
-        <li>tupac_666_</li>
-        <li>mrvenom1</li>
-      </ul>
-    </div>
+        <div class="cards">
+            <!-- קלף לקוחות -->
+            <div class="card">
+                <h2>לקוחות:</h2>
+                <ul class="client-list">
+                    <li>Nexa</li>
+                    <li>tenzertomer</li>
+                    <li>moonboy8888</li>
+                    <li>tupac_666_</li>
+                    <li>mrvenom1</li>
+                </ul>
+            </div>
 
-    <!-- קלף עסקאות -->
-    <div class="card">
-      <h2>עסקאות:</h2>
-      <img class="deal-img" src="images/deal.jpg" />
+            <!-- קלף תמונה -->
+            <div class="card image-card">
+                <img src="https://cdn.discordapp.com/attachments/1324170261133791233/1413267481791041596/Screenshot_20250904_235339_Discord.jpg?ex=68bb4f68&is=68b9fde8&hm=96833150a48589059c29e5665eeda75a7e5bc478e1ad4cc2bd6453c450cc9814" alt="הסקעות">
+            </div>
+        </div>
     </div>
-  </main>
 </body>
 </html>
