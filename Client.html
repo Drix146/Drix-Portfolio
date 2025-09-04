@@ -11,43 +11,75 @@
       --accent:#2b6cff;
       --text:#ffffff;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      min-height: 100vh;
       font-family:"Rubik",Arial,Helvetica,sans-serif;
-      color:var(--text);
+      color: var(--text);
       background:
         radial-gradient(1200px 1200px at 80% -10%, rgba(43,108,255,.25), transparent 60%),
         radial-gradient(900px 900px at 10% 110%, rgba(7,70,200,.30), transparent 60%),
         linear-gradient(135deg, var(--bg1) 10%, #061335 55%, var(--bg2) 100%);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
     }
-    .container{ max-width:1000px; margin:0 auto; padding:100px 18px; text-align:center }
-    h1{ font-size:2rem; margin-bottom:10px }
-    .subtitle{ opacity:.9; font-size:1.05rem; margin-bottom:26px }
+
+    .container{
+      max-width:1000px;
+      width: 90%;
+      margin: 0 auto;
+      padding: 120px 18px 60px;
+      text-align:center;
+    }
+
+    h1{
+      font-size:2rem;
+      margin-bottom:10px;
+    }
+
+    .subtitle{
+      opacity:.9;
+      font-size:1.05rem;
+      margin-bottom:26px;
+      line-height:1.5;
+    }
 
     .card{
-      background:rgba(255,255,255,.05);
+      background: rgba(255,255,255,.05);
       border-radius:14px;
       padding:20px;
       margin-bottom:24px;
       text-align:right;
+      overflow: hidden;
     }
+
     .card h2{
       font-size:1.3rem;
       margin-bottom:12px;
       border-bottom:1px solid rgba(255,255,255,.15);
       padding-bottom:6px;
     }
+
     .clients-list{
       list-style:none;
       padding:0;
       margin:0;
     }
+
     .clients-list li{
       margin:8px 0;
       padding-left:22px;
       position:relative;
     }
+
     .clients-list li::before{
       content:"●";
       color:var(--accent);
@@ -55,12 +87,20 @@
       left:0;
       top:0;
     }
+
     .deal-img{
       width:100%;
       max-width:700px;
       border-radius:12px;
       margin:14px 0;
       display:block;
+    }
+
+    @media (max-width: 600px){
+      h1 { font-size: 1.5rem; }
+      .subtitle { font-size: 0.95rem; }
+      .card h2 { font-size: 1.1rem; }
+      .deal-img { max-width: 100%; }
     }
   </style>
 </head>
@@ -86,7 +126,7 @@
     <!-- קלף עסקאות -->
     <div class="card">
       <h2>עסקאות:</h2>
-      <img class="deal-img" src="https://cdn.discordapp.com/attachments/1324170261133791233/1413267481791041596/Screenshot_20250904_235339_Discord.jpg?ex=68bb4f68&is=68b9fde8&hm=96833150a48589059c29e5665eeda75a7e5bc478e1ad4cc2bd6453c450cc9814&" alt="תמונה מעסקה" />
+      <img class="deal-img" src="https://cdn.discordapp.com/attachments/1324170261133791233/1413267481791041596/Screenshot_20250904_235339_Discord.jpg" alt="דוגמה לעסקה" />
       <div class="subtitle">
         כאן תוכלו לראות דוגמה של עסקה שנסגרה.
       </div>
