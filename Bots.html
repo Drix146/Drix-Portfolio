@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>פיתוח בוטים</title>
+    <style>
+        /* רקע גרדיאנט כחול-שחור */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #000080, #000000);
+            color: #fff;
+        }
+
+        /* קונטיינר מרכזי */
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        p.description {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+        }
+
+        /* קלפים */
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 20px;
+            min-width: 250px;
+            flex: 1 1 250px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            margin-bottom: 15px;
+        }
+
+        /* כפתור כחול-שחור */
+        .btn {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #000080, #000000);
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* מודל שמוצג באמצע */
+        .modal {
+            display: none; /* ברירת מחדל מוסתר */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0,0,0,0.95);
+            color: #fff;
+            padding: 20px;
+            max-width: 90%;
+            max-height: 80%;
+            overflow-y: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+            z-index: 1000;
+        }
+
+        .modal pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .modal .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff0000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .cards {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>פיתוח בוטים</h1>
+    <p class="description">
+        היי, ברוך הבא לדף הבוטים שאני מציע. <br>
+        הבוטים כאן אינם מותאמים אישית אלא נבנים מ-0 בהתאם למה שכתוב פה. <br>
+        לרוב המידע יותר עדכני בדיסקורד! אז שווה יותר לתעדכן משם.
+    </p>
+
+    <div class="cards">
+        <!-- קלף בוט קהילה -->
+        <div class="card">
+            <h2>בוט קהילה</h2>
+            <p>מחיר: 50 ש"ח חודש ראשון, חודש שני: 35 ש"ח</p>
+            <button class="btn" onclick="showModal('community')">לחץ כאן לצפייה במערכות</button>
+        </div>
+
+        <!-- קלף בוט חנות -->
+        <div class="card">
+            <h2>בוט חנות</h2>
+            <p>מחיר: 45 ש"ח חודש ראשון, חודש שני: 30 ש"ח</p>
+            <button class="btn" onclick="showModal('shop')">לחץ כאן לצפייה במערכות</button>
+        </div>
+
+        <!-- קלף בקרוב -->
+        <div class="card">
+            <h2>בקרוב..</h2>
+            <p>בקרוב יתווספו עוד</p>
+        </div>
+    </div>
+</div>
+
+<!-- מודל בוט קהילה -->
+<div class="modal" id="community">
+    <button class="close-btn" onclick="closeModal('community')">X</button>
+    <pre>
+__ Admin:__
+Verify
+Ticket
+Get roles
+Welcome
+Invites
+Boosts
+Say
+Suggestion
+Move-Voice
+AutoRole
+Role-All
+
+__ Giveaway:__
+/giveaway-create [duartion] [prize] [winners_amount] [role_req]
+/giveaway-end [giveaway-id]
+/giveaway-reroll [giveaway-id]
+/giveaway-cancel [giveaway-id]
+
+__ Fun:__
+Tictactoe
+Calc
+Gay
+Rps
+
+__ Info:__
+h
+member-count
+message-count
+help
+info
+server-info
+user-info
+server-info
+bot-info
+vt
+
+__Logs:__
+Help Logs
+Message Logs
+Voice Logs
+Role Logs
+And More..
+
+__ Tickets:__
+ticket
+add-ticket-block
+remove-ticket-block
+remove-all-ticketblock
+
+__ Xp__
+xp
+add-xp
+remove-xp
+reset-xp
+reset-allxp
+xp shop
+xp-lb [role]
+
+__ Invites:__
+invites
+add-invites
+remove-invites
+reset-invites
+reset-all-invites
+
+__ Reactions:__
+get role
+
+__Stats:__
+Voice Stats
+Message Stats
+Voice & Message
+
+__ Moderation:__
+ban
+unban
+mute
+unmute
+kick
+dm
+vmute
+unvmute
+warn
+warn list
+warn check
+warn remove
+warn reset
+
+__ Other System:__
+counting
+
+__Casino:__
+bal
+crime
+work
+daily
+dep
+with
+casino shop
+casino leadboard
+tc [type]
+
+__ Casino Admin:__
+add-momey
+remove-money
+reset-mony
+reset-all-money
+    </pre>
+</div>
+
+<!-- מודל בוט חנות -->
+<div class="modal" id="shop">
+    <button class="close-btn" onclick="closeModal('shop')">X</button>
+    <pre>
+Systems:
+Verify
+Ticket
+Welcome
+Invites
+Feedback
+Say
+Informantion
+
+Invites:
+/invites {user}
+/add-invites {user} {amoumt}
+/remove-invites {user} {amoujt}
+/reset-invites {user}
+/reset-all-imvites
+
+Customers:
+/customer-list
+/add-customer {user}
+/remove-customer {user}
+/reset-customers
+
+Moderation:
+!ban {user} {reason}
+!unban {userid} {reason}
+!mute {user} {reason} {time}
+!unmute {user} {reason}
+!kick {user}
+!vmute {user} {reason} {time}
+!unvmute {user} {reason}
+!warn {user} {reason}
+!remove warn {user} {reason}
+!reset waens {user}
+!warnlist
+!warn check {user}
+
+Anti:
+Anti - Link
+Anti - Spam
+And More..
+
+Logs:
+Message logs
+Voice logs
+Ticket logs
+Roles Logs
+AntiLink Logs
+Moderation Logs
+    </pre>
+</div>
+
+<script>
+    function showModal(id) {
+        document.getElementById(id).style.display = 'block';
+    }
+    function closeModal(id) {
+        document.getElementById(id).style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
