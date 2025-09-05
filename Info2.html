@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>מידע נוסף</title>
+<title>מידע נוסף - 2</title>
 <style>
     /* רקע דינמי שחור-כחול זורם */
     @keyframes gradientBG {
@@ -38,7 +38,7 @@
         position: relative;
     }
 
-    /* כפתור החזרה למעלה */
+    /* כפתור חזרה למעלה */
     .back-button {
         display: inline-block;
         padding: 12px 25px;
@@ -59,27 +59,6 @@
         box-shadow: 0 0 25px rgba(13, 71, 161, 0.9);
     }
 
-    /* כפתור לדף שני */
-    .next-button {
-        display: inline-block;
-        padding: 12px 25px;
-        font-size: 1rem;
-        color: #ffffff;
-        background: linear-gradient(45deg, #0d47a1, #1565c0);
-        border: none;
-        border-radius: 12px;
-        text-decoration: none;
-        cursor: pointer;
-        box-shadow: 0 0 15px rgba(13, 71, 161, 0.7);
-        transition: all 0.3s ease;
-        margin-bottom: 30px;
-    }
-
-    .next-button:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 25px rgba(13, 71, 161, 0.9);
-    }
-
     /* כותרת */
     h1 {
         font-size: 3rem;
@@ -94,26 +73,33 @@
         margin-bottom: 25px;
     }
 
+    .section-title {
+        font-size: 1.2rem;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        color: #0d47a1;
+        font-weight: bold;
+    }
+
     .info {
         font-size: 1.1rem;
         line-height: 1.8;
         margin-bottom: 30px;
     }
 
-    .offer {
+    ul {
         list-style: none;
         padding-left: 0;
-        margin: 20px 0;
+        margin: 10px 0 20px 0;
     }
 
-    .offer li {
-        margin-bottom: 15px;
-        font-size: 1.1rem;
-        padding-left: 30px;
+    ul li {
         position: relative;
+        padding-left: 30px;
+        margin-bottom: 10px;
     }
 
-    .offer li::before {
+    ul li::before {
         content: "✔";
         position: absolute;
         left: 0;
@@ -127,43 +113,40 @@
         h1 { font-size: 2.5rem; }
         .description { font-size: 1.1rem; }
         .info { font-size: 1rem; }
-        .back-button, .next-button { padding: 10px 20px; font-size: 0.95rem; }
+        .back-button { padding: 10px 20px; font-size: 0.95rem; }
     }
 
     @media (max-width: 480px) {
         h1 { font-size: 2rem; }
         .description, .info { font-size: 0.95rem; }
-        .offer li { font-size: 0.9rem; }
+        ul li { font-size: 0.9rem; }
     }
 </style>
 </head>
 <body>
 <div class="container">
-    <!-- כפתור חזרה למעלה -->
-    <a href="index.html" class="back-button">חזרה</a>
+    <!-- כפתור חזרה למעלה (2 דפים אחורה) -->
+    <button class="back-button" onclick="history.go(-2)">חזרה</button>
 
-    <h1>מידע נוסף</h1>
-    <p class="description">היי, מידע נוסף עלי Drix כמתכנת בוטים לדיסקורד.</p>
+    <h1>מידע נוסף - 2</h1>
+    <p class="description">היי, מידע נוסף - חלק 2</p>
+
     <div class="info">
-        <p>היי, אני דריקס. נכון לא שם מוכר בקהילה, אבל התחלתי לפרסם ולשווק את עצמי רק בתחילת השנה ומאז צברתי מלא לקוחות מרוצים.</p>
-        <p>אני כאן כדי לאפשר לכם לקנות את הבוט המושלם עבורכם במחיר שפוי ונוח לגמרי. אני לא מאמין שתוציאו 80₪+ על בוט עם 5 מערכות – כאן בשירות שלי הדבר הזה לא יקרה.</p>
-        <p>כל אחד מקבל הצעת מחיר הוגנת וגמישה ואפשר להתגמש במחיר עד כמה שאפשר.</p>
-        <p>אני מציע לכם:</p>
-        <ul class="offer">
-            <li>שירות מקצועי ברמה גבוהה</li>
-            <li>שירות איכותי ואמין</li>
-            <li>בוטים בהתאמה אישית לצרכים שלכם</li>
-            <li>תמיכה מלאה אחרי ההתקנה</li>
-            <li>עדכונים ושיפורים על פי דרישה</li>
-            <li>ממשק משתמש נוח וברור</li>
-            <li>הצעות מחיר הוגנות וגמישות</li>
-            <li>ועוד הפתעות שמחכות רק לכם!</li>
+        <p class="section-title">שפות התכנות שאני יודע:</p>
+        <ul>
+            <li>JavaScript (js)</li>
+            <li>Python (py)</li>
+            <li>TypeScript (ts) - Soon..</li>
         </ul>
-        <p>אז קדימה! בואו נתחיל בעבודה ביחד. תפנו אלי בדיסקורד שבדף הקודם.</p>
-    </div>
 
-    <!-- כפתור לדף שני -->
-    <a href="Info2.html" class="next-button">דף שני</a>
+        <p class="section-title">שנות התכנות שלי:</p>
+        <p>3 שנות תכנות שבכל השנים צברתי ניסיון רב עם לקוחות ואנשים שרצו בוט.</p>
+
+        <p class="section-title">למה התחלתי לתכנת?</p>
+        <p>אז ככה, התחלתי ללמוד לתכנת כי ראיתי את חברים שלי עושים את זה ומהצד? זה היה נראה קל כי זה סתם לכתוב קוד.</p>
+        <p>ואז שנסיתי ההתחלה הבנתי שזה לא דבר שמצליחים בכמה ימים אלא תקופה מאוד ארוכה של לימודים, כשלונות והצלחות. לא תמיד קיבלתי את מה שאני רוצה אבל לא הפסקתי.</p>
+        <p>ואז התחילה התקופה של מכירת הבוטים וראיתי את כל המחירים המטורפים שהתחילו לפרסם - 80 שקל, 100 שקל וכו' - ואמרתי לעצמי "יום יבוא ואני גם המוכר בוטים, אבל במחיר שכזה? ממש לא!" וככה התחילה דרכי כמתכנת.</p>
+    </div>
 </div>
 </body>
 </html>
