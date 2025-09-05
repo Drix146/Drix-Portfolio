@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מידע נוסף</title>
+<style>
+    /* רקע דינמי שחור-כחול זורם */
+    @keyframes gradientBG {
+        0% {background-position: 0% 50%;}
+        50% {background-position: 100% 50%;}
+        100% {background-position: 0% 50%;}
+    }
+
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(-45deg, #0d47a1, #000000, #1a237e, #000000);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+    }
+
+    /* קונטיינר מרכזי */
+    .container {
+        background: rgba(0,0,0,0.85);
+        border-radius: 20px;
+        padding: 40px;
+        max-width: 900px;
+        width: 100%;
+        box-shadow: 0 0 40px rgba(13, 71, 161, 0.9);
+        text-align: right;
+    }
+
+    h1 {
+        font-size: 3rem;
+        color: #0d47a1;
+        text-shadow: 3px 3px 10px black;
+        margin-bottom: 25px;
+    }
+
+    .description {
+        font-size: 1.3rem;
+        line-height: 1.8;
+        margin-bottom: 25px;
+    }
+
+    .info {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 30px;
+    }
+
+    .offer {
+        list-style: none;
+        padding-left: 0;
+        margin: 20px 0;
+    }
+
+    .offer li {
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+        padding-left: 30px;
+        position: relative;
+    }
+
+    .offer li::before {
+        content: "✔";
+        position: absolute;
+        left: 0;
+        color: #0d47a1;
+        font-weight: bold;
+    }
+
+    /* כפתור חזרה */
+    .back-button {
+        display: inline-block;
+        padding: 14px 30px;
+        font-size: 1.1rem;
+        color: #ffffff;
+        background: linear-gradient(45deg, #0d47a1, #1565c0);
+        border: none;
+        border-radius: 12px;
+        text-decoration: none;
+        cursor: pointer;
+        box-shadow: 0 0 15px rgba(13, 71, 161, 0.7);
+        transition: all 0.3s ease;
+    }
+
+    .back-button:hover {
+        transform: scale(1.08);
+        box-shadow: 0 0 25px rgba(13, 71, 161, 0.9);
+    }
+
+    /* רספונסיביות */
+    @media (max-width: 768px) {
+        .container { padding: 25px; }
+        h1 { font-size: 2.5rem; }
+        .description { font-size: 1.1rem; }
+        .info { font-size: 1rem; }
+        .back-button { padding: 12px 25px; font-size: 1rem; }
+    }
+
+    @media (max-width: 480px) {
+        h1 { font-size: 2rem; }
+        .description, .info { font-size: 0.95rem; }
+        .offer li { font-size: 0.95rem; }
+        .back-button { padding: 10px 20px; font-size: 0.9rem; }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>מידע נוסף</h1>
+    <p class="description">היי, מידע נוסף עלי Drix כמתכנת בוטים לדיסקורד.</p>
+    <div class="info">
+        <p>היי, אני דריקס. נכון לא שם מוכר בקהילה, אבל התחלתי לפרסם ולשווק את עצמי רק בתחילת השנה ומאז צברתי מלא לקוחות מרוצים.</p>
+        <p>אני כאן כדי לאפשר לכם לקנות את הבוט המושלם עבורכם במחיר שפוי ונוח לגמרי. אני לא מאמין שתוציאו 80₪+ על בוט עם 5 מערכות – כאן בשירות שלי הדבר הזה לא יקרה.</p>
+        <p>כל אחד מקבל הצעת מחיר הוגנת וגמישה ואפשר להתגמש במחיר עד כמה שאפשר.</p>
+        <p>אני מציע לכם:</p>
+        <ul class="offer">
+            <li>שירות מקצועי ברמה גבוהה</li>
+            <li>שירות איכותי ואמין</li>
+            <li>בוטים בהתאמה אישית לצרכים שלכם</li>
+            <li>תמיכה מלאה אחרי ההתקנה</li>
+            <li>עדכונים ושיפורים על פי דרישה</li>
+            <li>ממשק משתמש נוח וברור</li>
+            <li>הצעות מחיר הוגנות וגמישות</li>
+            <li>ועוד הפתעות שמחכות רק לכם!</li>
+        </ul>
+        <p>אז קדימה! בואו נתחיל בעבודה ביחד. תפנו אלי בדיסקורד שבדף הקודם.</p>
+    </div>
+    <a href="index.html" class="back-button">חזרה</a>
+</div>
+</body>
+</html>
